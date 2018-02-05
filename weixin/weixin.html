@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="images/weixin.ico">
+    <title>滑动门</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .head {
+            width: 100%;
+            height: 75px;
+            background: #000 url(images/weixin.jpg) repeat-x;
+        }
+        img {
+            position: absolute;
+            left: 200px;
+            top: 15px;
+            width: 129px;
+            height: 44px;
+        }
+        .nav {
+            display: block;
+            padding: 20px;
+            float: right;
+            margin-right: 150px;
+        }
+        .nav li {
+            list-style: none;
+            /* display: inline-block; */
+            float: left;
+            display: list-item;
+        }
+        .nav li a {
+            display: inline-block;
+            padding-left: 16px;
+            text-decoration: none;
+            line-height: 33px;
+            color: #fff;
+            margin: 0 2px;
+        }
+        .nav li:nth-child(1) a {
+            background: url(images/weixin1.png) no-repeat left;
+        }
+        .nav li a span {
+            display: inline-block;
+            padding-right: 16px;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .nav li:nth-child(1) a span {
+            background: url(images/weixin1.png) no-repeat right;
+        }
+        .nav li a:hover {
+            display: inline-block;
+            background: url(images/weixin.png) no-repeat left;
+            padding-left: 16px;
+            text-decoration: none;
+            line-height: 33px;
+        }   
+        .nav li a:hover span {
+            display: inline-block;
+            background: url(images/weixin.png) no-repeat right;
+            padding-right: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <img src="images/weixin2.png" alt="微信">
+        <ul class="nav">
+            <li><a href="#"><span>首页</span></a></li>
+            <li><a href="#"><span>帮助与反馈</span></a></li>
+            <li><a href="#"><span>公众平台</span></a></li>
+            <li><a href="#"><span>开放平台</span></a></li>
+            <li><a href="#"><span>微信支付</span></a></li>
+            <li><a href="#"><span>微信网页版</span></a></li>
+            <li><a href="#"><span>表情开放平台</span></a></li>
+            <li><a href="#"><span>微信广告</span></a></li>
+        </ul>
+    </div>
+</body>
+</html>

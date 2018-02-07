@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>无缝滚动</title>
+    <style>
+        @keyframes scroll {
+            from {
+                transform: translate(0px);
+            }
+            to {
+                transform: translate(-663px);
+            }
+        }
+        .f {
+            width: 663px;
+            height: 132px;
+            border:  1px solid tomato;
+            margin: 100px auto;
+            overflow: hidden;
+        }
+        .s {
+            width: 200%;
+            height: 132px;
+            animation: scroll 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        .s:hover {
+            animation-play-state: paused;
+        }
+        img {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="f">
+        <div class="s">
+            <img class="scroll1" src="images/scroll.jpg" alt="srcoll1">
+            <img class="scroll2" src="images/scroll.jpg" alt="srcoll2">
+        </div>
+    </div>
+</body>
+</html>

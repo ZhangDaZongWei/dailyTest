@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定位问题</title>
+    <style>
+        .f {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background-color: tomato;
+            margin: 50px auto;
+        }
+        .s {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: brown;
+            left: 50%;
+            margin-left: -100px; 
+            top: 50%;
+            margin-top: -50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="f">
+        <div class="s"></div>
+    </div>
+</body>
+</html>

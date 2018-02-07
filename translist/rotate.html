@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转图片</title>
+    <style>
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            transform-origin: left top;
+        }
+        img:nth-child(5){
+            transform: rotate(360deg);
+        }
+        img:nth-child(4){
+            transform: rotate(288deg);
+        }
+        img:nth-child(3){
+            transform: rotate(216deg);
+        }
+        img:nth-child(2){
+            transform: rotate(144deg);
+        }
+        img:nth-child(1){
+            transform: rotate(72deg);
+        }
+        div {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid tomato; */
+            margin: 300px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+            <img src="images/dog1.jpg" alt="dog1">
+            <img src="images/dog2.jpg" alt="dog2">
+            <img src="images/dog3.jpg" alt="dog3">
+            <img src="images/dog4.jpg" alt="dog4">
+            <img src="images/dog5.jpg" alt="dog5">
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>flex伸缩布局</title>
+    <style>
+        .flexcon {
+            width: 600px;
+            height: 600px;
+            display: -webkit-flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            align-content: space-between;
+            margin: 0 auto;
+            background-color: tomato;
+        }
+        .flexitem {
+            width: 100px;
+            height: 100px;
+            flex-grow: 1;
+            background-color: pink;
+            text-align: center;
+            line-height: 100px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .flexitem:nth-child(2),
+        .flexitem:nth-child(4),
+        .flexitem:nth-child(6),
+        .flexitem:nth-child(8){
+            background-color: brown;
+            flex-grow: 2;
+            flex-shrink: 0;
+        }
+        .flexitem:nth-child(2){
+            align-self: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="flexcon">
+        <div class="flexitem">1</div>
+        <div class="flexitem">2</div>
+        <div class="flexitem">3</div>
+        <div class="flexitem">4</div>
+        <div class="flexitem">5</div>
+        <div class="flexitem">6</div>
+        <div class="flexitem">7</div>
+        <div class="flexitem">8</div>
+    </div>
+</body>
+</html>

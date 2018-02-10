@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>携程手机客户端</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .content {
+            max-width: 540px;
+            min-width: 340px;
+            margin: 100px auto;
+        }
+        .row {
+            background-color: #ff697a;
+            display: -webkit-flex;
+            border-radius: 4px;
+            margin-bottom: 3px;
+        }
+        .row:nth-child(1) {
+            background-color: #ff697a;
+        }
+        .row:nth-child(2) {
+            background-color: #3d98ff;
+        }
+        .row:nth-child(3) {
+            background-color: #44c522
+        }
+        .row:nth-child(4) {
+            background-color: #fc9720;
+        }
+        .row .col {
+            display: -webkit-flex;
+            flex-wrap: wrap;
+            flex-grow: 1;
+            height: 90px;
+        }
+        .row .col:nth-child(2) {
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+        }
+        .row .col:nth-child(2) .r,
+        .row .col:nth-child(3) .r {
+            flex-basis: 100%;
+        }
+        .row .col:nth-child(2) .r:nth-child(1),
+        .row .col:nth-child(3) .r:nth-child(1) {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="row">
+            <div class="col">1</div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">2</div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">2</div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">2</div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+            <div class="col">
+                <div class="r"></div>
+                <div class="r"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

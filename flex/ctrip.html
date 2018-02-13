@@ -4,21 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" type="image/x-icon" href="images/icon2.png">
     <title>携程手机客户端</title>
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
+        body {
+            background-color: #f6f6f6;
+        }
+        /* 总体框架，利用flex */
         .content {
             max-width: 540px;
-            min-width: 340px;
-            margin: 100px auto;
+            min-width: 300px;
+            margin: 47px auto 0 auto;
         }
         .row {
             background-color: #ff697a;
             display: -webkit-flex;
             border-radius: 4px;
-            margin-bottom: 3px;
+            margin: 0 3px 3px 3px;
         }
         .row:nth-child(1) {
             background-color: #ff697a;
@@ -36,68 +43,291 @@
             display: -webkit-flex;
             flex-wrap: wrap;
             flex-grow: 1;
+            justify-content: center;
+            width: 180px;
             height: 90px;
         }
         .row .col:nth-child(2) {
             border-left: 1px solid white;
             border-right: 1px solid white;
         }
-        .row .col:nth-child(2) .r,
-        .row .col:nth-child(3) .r {
+        .row .col .r,
+        .row .col .r {
             flex-basis: 100%;
+            text-align: center;
+            line-height: 45px;
+            font-size: 15px;
+            color: #fff;
         }
-        .row .col:nth-child(2) .r:nth-child(1),
-        .row .col:nth-child(3) .r:nth-child(1) {
+        .row .col .r:nth-child(1),
+        .row .col .r:nth-child(1) {
             border-bottom: 1px solid white;
+        }
+        /* 内部样式 */
+        
+        .s1 {
+            height: 45px;
+            flex-basis: 100%;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 15px;
+            color: #fff;
+        }
+        .s2 {
+            width: 43px;
+            height: 43px;
+            background-position: 0px -124px;
+            background: url(images/trip.png) 0 0 no-repeat;
+            background-size: 104px auto;
+        }
+        .space {
+            letter-spacing: 5px; 
+        }
+        /* 新的块 */
+        .newrow {
+            display: -webkit-flex;
+            flex-wrap: wrap;
+            background: #ff697a;
+            border-radius: 4px;
+            margin: 0 3px 3px 3px;
+        }
+        .newcol {
+            display: -webkit-flex;
+            flex-basis: 100%;
+            height: 60px;
+        }
+        .newr {
+            flex-grow: 1;
+            flex-basis: 100%;
+            border-right: 1px solid white;
+            border-bottom: 1px solid white;
+        }
+        .end {
+            border-right: none;
+        }
+        .right {
+            border-bottom: none;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            z-index: 12;
+            width: 100%;
+            height: 45px;
+            max-width: 540px;
+            transform: translateX(-50%);
+            background-color: #f6f6f6;
+        }
+        .nav input {
+            position: absolute;
+            width: 90%;
+            padding: 5px;
+            top: 50%;
+            margin-top: -15px;
+            outline: none;
+            border: 1px solid rgba(0, 0, 0, .3);
+            border-radius: 3px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+        }
+        .nav .person {
+            position: absolute;
+            top: 3px;
+            left: 85%;
+            width: 15%;
+        }
+        .nav .person div:nth-child(1) {
+            width: 24px;
+            height: 24px;
+            margin-left: 50px;
+            border-radius: 50%;
+            background-color: #3d98ff;
+        }
+        .nav .person div:nth-child(2) {
+            padding-right: 5px;
+            text-align: right;
+            font-size: 14px;
+        }
+        @keyframes scroll {
+            from {
+                transform: translate(0px);
+            }
+            to {
+                transform: translate(-1620px);
+            }
+        }
+        .container {
+            width: 100%;
+            height: 108px;
+            position: relative;
+            border: 1px solid #E5E8E8;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .container .list {
+            position: absolute;
+            width: 3420px;
+            height: 108px;
+            left: -540px;
+        }
+        .container .list img {
+            width: 540px;
+            height: 108px;
+            float: left;
+        }
+        .container .button {
+            position: absolute;
+            width: 100px;
+            height: 10px;
+            right: 3px;
+            bottom: 5px;
+        }
+        .container .button span {
+            float: left;
+            width: 10px;
+            height: 10px;
+            border: 1px solid #888;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+        .container .button .doe {
+            background-color: tomato;
+        }
+        .container .arrow {
+            display: none;
+        }
+        .container:hover .arrow {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 30px;
+            color: #fff;
+            border: 1px solid rgba(215, 219, 221, .3);
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 30px;
+            text-decoration: none;
+            background-color: rgba(133, 146, 158, .3);
+        }
+        #prev {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        #next {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
         }
     </style>
 </head>
 <body>
+    <div class="nav">
+        <input type="text" name="" id="" placeholder="搜索:目的地/酒店/景点/航班号">
+        <div class="person">
+            <div></div>
+            <div>我的</div>
+        </div>
+    </div>
     <div class="content">
+        <div class="container">
+            <div class="list">
+                <img src="images/lunbo1.jpg" alt="轮播图">
+                <img src="images/lunbo2.jpg" alt="轮播图">
+                <img src="images/lunbo3.jpg" alt="轮播图">
+                <img src="images/lunbo4.jpg" alt="轮播图">
+                <img src="images/lunbo5.jpg" alt="轮播图">
+                <img src="images/lunbo6.jpg" alt="轮播图">
+            </div>
+            <div class="button">
+                <span class="doe"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <a href="#" id="prev" class="arrow">&lt;</a>
+            <a href="#" id="next" class="arrow">&gt;</a>
+        </div>
         <div class="row">
-            <div class="col">1</div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="s1 space">酒店</div>
+                <div class="s2"></div>
             </div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="r">海外酒店</div>
+                <div class="r">特价酒店</div>
+            </div>
+            <div class="col">
+                <div class="r space">团购</div>
+                <div class="r">民宿<span>·</span>客栈</div>
             </div>
         </div>
         <div class="row">
-            <div class="col">2</div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="s1 space">机票</div>
+                <div class="s2"></div>
             </div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">2</div>
-            <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="r">火车票<span>·</span>抢票</div>
+                <div class="r">特价机票</div>
             </div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="r">汽车票<span>·</span>船票</div>
+                <div class="r">专车<span>·</span>租车</div>
             </div>
         </div>
         <div class="row">
-            <div class="col">2</div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="s1 space">旅游</div>
+                <div class="s2"></div>
             </div>
             <div class="col">
-                <div class="r"></div>
-                <div class="r"></div>
+                <div class="r">目的地攻略</div>
+                <div class="r">周边游</div>
+            </div>
+            <div class="col">
+                <div class="r">邮轮旅行</div>
+                <div class="r">定制旅行</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="r">景点<span>·</span>玩乐</div>
+                <div class="r">礼品卡</div>
+            </div>
+            <div class="col">
+                <div class="r">美食林</div>
+                <div class="r">WiFi<span>·</span>电话卡</div>
+            </div>
+            <div class="col">
+                <div class="r">购物<span>·</span>信用卡</div>
+                <div class="r">保险<span>·</span>签证</div>
+            </div>
+        </div>
+        <div class="newrow">
+            <div class="newcol">
+                <div class="newr">自由行</div>
+                <div class="newr">微领队</div>
+                <div class="newr">一日游</div>
+                <div class="newr end">高端游</div>
+            </div>
+            <div class="newcol">
+                <div class="newr">酒店+景点</div>
+                <div class="newr">境外玩乐</div>
+                <div class="newr">外币兑换</div>
+                <div class="newr end">加盟合作</div>
+            </div>
+            <div class="newcol">
+                <div class="newr right">机场停车</div>
+                <div class="newr right">行李寄送</div>
+                <div class="newr right">当季去哪</div>
+                <div class="newr end">更多服务</div>
             </div>
         </div>
     </div>
+
+    <script src="js/scroll.js"></script>
 </body>
 </html>

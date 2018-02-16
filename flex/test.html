@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>响应轮播测试</title>
+    <style>
+        .container {
+            position: relative;
+            max-width: 540px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .container ul {
+            float: left;
+            width: 500%;
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        .container ul li {
+            float: left;
+            width: 20%;
+        }
+        .container ul li img {
+            display: block;
+            max-width: 100%;
+        }
+        .container .clear {
+            clear: both;
+        }
+        .container .choose1,
+        .container .choose2 {
+            position: absolute;
+            box-sizing: border-box;
+            width: 5%;
+            height: 30%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: tomato;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: wheat;
+            cursor: pointer;
+        }
+        .container .choose2 {
+            right: 0;
+        }
+        .container .bar {
+            position: absolute;
+            width: 25%;
+            height: 15%;
+            right: 0;
+            bottom: 0;
+        }
+        .container .bar span {
+            display: block;
+            box-sizing: border-box;
+            float: left;
+            width: 15%;
+            height: 20%;
+            background-color: #eee;
+            border-radius: 50%;
+            margin-right: 5%;
+            cursor: pointer;
+        }
+        .container .bar .doe {
+            background-color: tomato;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li><img src="images/lunbo1.jpg" alt="轮播图"></li>
+            <li><img src="images/lunbo2.jpg" alt="轮播图"></li>
+            <li><img src="images/lunbo3.jpg" alt="轮播图"></li>
+            <li><img src="images/lunbo4.jpg" alt="轮播图"></li>
+            <li><img src="images/lunbo5.jpg" alt="轮播图"></li>
+        </ul>
+        <div class="clear"></div>
+        <div class="choose1">&lt;</div>
+        <div class="choose2">&gt;</div>
+        <div class="bar">
+            <span class="doe"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        window.onload = function() {
+            var container = document.getElementsByClassName('container')[0];
+            var _ul = document.getElementsByTagName('ul')[0];
+            var prev = container.getElementsByClassName('choose1')[0];
+            var next = container.getElementsByClassName('choose2')[0];
+            var _span = document.getElementsByTagName('span');
+            var count = 0;
+            _ul.style.marginLeft = 0 + '%';
+            function offset(offest) {
+                var margin_left = parseInt(_ul.style.marginLeft) + offest;
+                if(margin_left > 0){
+                    margin_left = -400;
+                    _ul.style.marginLeft = margin_left +'%';
+                }else if(margin_left < -400){
+                    margin_left = 0;
+                    _ul.style.marginLeft = margin_left +'%';
+                }else{
+                    _ul.style.marginLeft = margin_left +'%';
+                }
+            }
+            prev.onclick = function() {
+                count--;
+                if(count < 0){
+                    count = 4;
+                    changeSpan(count);
+                }else {
+                    changeSpan(count);
+                }
+                
+                offset(100);
+            }
+            next.onclick = function() {
+                count++;
+                if(count > 4){
+                    count = 0;
+                    changeSpan(count);
+                }else {
+                    changeSpan(count);
+                }
+                offset(-100);
+            }
+            function run(){
+                timer = setInterval(function(){
+                    next.onclick();
+                },1500);
+            }
+            run();
+            function stop(){
+                container.onmouseover = function() {
+                    clearInterval(timer);
+                }
+                container.onmouseout = function() {
+                    run();
+                }
+            }
+            stop();
+            function changeSpan(doe) {
+                for(var i=0; i<_span.length; i++){
+                   if(_span[i].className = 'doe'){
+                       _span[i].className = '';
+                   }
+                }
+                _span[doe].className = 'doe';
+            }
+            function changDoe(){
+                for(var j=0; j<_span.length; j++){
+                    (function(j){
+                        _span[j].onclick = function() {
+                            var among =  j*(-100)-parseInt(_ul.style.marginLeft);
+                            offset(among);
+                            changeSpan(j);
+                        }
+                    })(j)
+                }
+            }
+            changDoe();
+        }
+    </script>
+</body>
+</html>

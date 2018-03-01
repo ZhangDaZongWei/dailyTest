@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prototype</title>
+</head>
+<body>
+    <h1>prototype实例</h1>
+    <script>
+        window.onload = function () { 
+            var koly = {
+                name: 'koly',
+            }
+            console.log(koly.prototype);
+        // koly._proto_, koly.[[prototype]] => koly对象的原型;
+        // 每个对象里都有一个指向另一个对象的链接，这个链接就叫做prototype原型，
+        // prototype也是一个对象，当然也有自己的内部链接，即prototype原型，
+        // null对象没有原型，
+        // 通过koly._proto_访问
+        }   
+    </script>
+</body>
+</html>

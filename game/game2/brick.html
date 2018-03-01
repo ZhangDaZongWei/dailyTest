@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>打砖块</title>
+    <style>
+        #images {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="images" width="500" height="300"></canvas>
+    <script>
+        // 挡板
+        var x = 50, y =250;
+        var right = false, left = false;
+        var speed = 10;
+        var canvas = document.querySelector('#images');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.src = 'images/lunbo2.jpg';
+        img.onload = function () { 
+            ctx.drawImage(img,x,y,300,50);
+         }
+         window.addEventListener('keydown',function(event){
+             console.log(event);
+             if(event.key == 'a'){
+                 left = true;
+             }
+             if(event.key == 'd'){
+                 right = true;
+             }
+         });
+         window.addEventListener('keyup',function (event) { 
+             console.log(event);
+             if(event.key == 'a'){
+                 left = false;
+             }
+             if(event.key == 'd'){
+                 right = false;
+             }
+          })
+         setInterval(function(){
+             if(left){
+                if(x > 0){
+                    x -= speed;
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.drawImage(img,x,y,300,50);
+                }
+                console.log(x);
+                
+             }
+             if(right){
+                if(x < 200){
+                    x += speed;
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.drawImage(img,x,y,300,50);
+                }
+                console.log(x);
+                
+             }
+         },1000/60);
+         // 小球
+         var a = 50, b=50;
+         var ball = new Image();
+         ball.src = 'images/dog5.jpg';
+         ball.onload = function() {
+             ctx.drawImage(ball,150,200,50,100,a,b,30,30);
+         }
+        //  setInterval(function () { 
+        //      if(a > )
+        //      a += 5;
+        //      b += 5;
+        //      ctx.clearRect(0,0,canvas.width,canvas.height);
+        //      ctx.drawImage(ball,a,b,30,30);
+        //   },1000);
+    </script>
+</body>
+</html>

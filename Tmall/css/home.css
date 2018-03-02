@@ -202,6 +202,7 @@ header {
 
 .container-fuild5 {
     margin-top: 10px;
+    margin-bottom: 10px;
 }
 .container-fuild5 .container {
     padding: 30px 9px 30px 9px;
@@ -270,13 +271,18 @@ header {
 .container-fuild6 img {
     vertical-align: middle;
 }
-
+.container-fuild7 {
+    margin-bottom: 10px;
+}
 .container-fuild7 .container {
     display: -webkit-flex;
     justify-content: space-around;
 }
 .container-fuild7 .container .intro {
     margin-top: 20px;
+}
+.container-fuild7 .container .intro span a {
+    color: #b9b3b3;
 }
 .container-fuild7 .container .intro h3 {
     font-size: 18px;

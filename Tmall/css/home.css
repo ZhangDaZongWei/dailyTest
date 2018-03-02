@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 header {
-    background-color: silver;
+    background-color: rgb(236, 231, 231);
 }
 .container {
     position: relative;
@@ -39,6 +39,15 @@ header {
 }
 .nav .frist{
     margin-left: 0;
+}
+.nav li a {
+    color: rgb(146, 137, 136);
+}
+.nav li a:hover {
+    color: #C40000;
+}
+.nav .iconfont {
+    color: #C40000;
 }
 .nav .last{
     margin-right: 0;
@@ -130,7 +139,7 @@ header {
 }
 /* 轮播设置 */
 .container-fuild4 {
-    background-color: rgb(223, 217, 217);
+    background-color: rgb(238, 229, 229);
 }
 .container-fuild4 .lunbo {
     width: 100%;
@@ -211,16 +220,21 @@ header {
 .container-fuild5 .container img {
     width: 100%;
 }
+.container-fuild5 .container img:hover {
+    opacity: 0.7;
+}
 .container-fuild5 .imagelist {
     margin-bottom: 50px;
 }
 .container-fuild5 .imagelist .list {
     float: left;
     width: 186px;
-    border: 1px solid tomato;
     margin-right: 8px;
     padding-bottom: 8px;
     background-color: white
+}
+.container-fuild5 .imagelist .list:hover {
+    border: 1px solid tomato;
 }
 .container-fuild5 .imagelist .list:nth-child(1) {
     margin-left: 8px;
@@ -245,4 +259,66 @@ header {
     width: 100px;
     height: 50px;
     margin: 0 auto;
+}
+
+.container-fuild6 {
+    text-align: center;
+    padding: 30px 5px;
+    border-top: 1px solid rgb(180, 175, 175);
+    border-bottom: 1px solid rgb(180, 175, 175);
+}
+.container-fuild6 img {
+    vertical-align: middle;
+}
+
+.container-fuild7 .container {
+    display: -webkit-flex;
+    justify-content: space-around;
+}
+.container-fuild7 .container .intro {
+    margin-top: 20px;
+}
+.container-fuild7 .container .intro h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+.container-fuild7 .container .intro span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.container-fuild8 {
+    background-color: black;
+    border-top: 2px solid #C40000;   
+    padding-bottom: 30px;
+}
+.container-fuild8 .container .cateye {
+    display: block;
+    margin-top: -33px;
+}
+.container-fuild8 .container .link {
+    color: white;
+    margin-bottom: 10px;
+}
+.container-fuild8 .container .link a {
+    color: white;
+}
+.container-fuild8 .container .frist {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.container-fuild8 .container .frist span,
+.container-fuild8 .container .second span {
+    color: white;
+}
+.container-fuild8 .container .frist span {
+    margin-left: 5px;
+}
+.container-fuild8 .container .second span {
+    margin-left: 2px;
+}
+.container-fuild8 .container .third,
+.container-fuild8 .container .four {
+    color: #A4A4A4;
 }
